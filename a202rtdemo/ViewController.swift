@@ -26,6 +26,7 @@ class ViewController: UIViewController {
             print("Data is : \(snapshot.value as! Int)")
         }
         
+        ref.child("appStatus/setting/name").setValue("Danny Test 2")
         
         
     }
