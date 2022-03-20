@@ -6,12 +6,28 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class ViewController: UIViewController {
 
+    var ref:DatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        Auth.auth().signInAnonymously(completion: nil)
+        
+        
+        
+        ref = Database.database().reference()
+        
+        ref.child("appStatus/ver").observeSingleEvent(of: .value) { snapshot in
+            print("Data is : \(snapshot.value as! Int)")
+        }
+        
+        
+        
     }
 
 
